@@ -27,7 +27,10 @@ impl PacketData {
                         destination_ip = val.destination_addr().to_string();
                         protocol = get_protocol(val.protocol());
                     },
-                    _ => ()
+                    InternetSlice::Ipv6(val, _) => {
+                        source_ip = val.source_addr().to_string();
+                        destination_ip = val.destination_addr().to_string();
+                    },
                 }
             }
         }

@@ -8,15 +8,15 @@ pub fn individual_display(num: u32, packet: &PacketData, incl_data: bool) {
 
 pub fn print_header() {
     println!(
-        "{:<10} | {:<20} | {:<20} | {:<20} | {:<10} | {:<10}",
+        "{:<10} | {:<20} | {:<40} | {:<40} | {:<10} | {:<10}",
         "Num:", "Time:", "Source:", "Destination:", "Protocol:", "Length:"
     );
-    println!("{}", "=".repeat(105));
+    println!("{}", "=".repeat(145));
 }
 
 pub fn print_packet(num: u32, packet: &PacketData, incl_data: bool) {
     println!(
-        "{:<10} | {:<20} | {:<20} | {:<20} | {:<10} | {:<10}",
+        "{:<10} | {:<20} | {:<40} | {:<40} | {:<10} | {:<10}",
         num,
         packet.get_ts(),
         packet.source_ip,
@@ -27,7 +27,7 @@ pub fn print_packet(num: u32, packet: &PacketData, incl_data: bool) {
 
     if incl_data {
         println!("Data:");
-        println!("{:<100}", packet.data);
+        println!("{}", packet.data);
     }
 }
 

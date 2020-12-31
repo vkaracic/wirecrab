@@ -2,7 +2,7 @@
 
 > Note: I've created this project to learn Rust and, other than for educational purposes, it's completely useless. If you need a network capturing/monitoring program use [tcpdump](https://www.tcpdump.org/) or [wireshark](https://www.wireshark.org/).
 
-A terminal utility for capturing the network packets and display them on screen. Currently supports only IPv4 packets.
+A terminal utility for capturing the network packets and display them on screen.
 
 ### Install from source
 
@@ -54,21 +54,24 @@ An example for running the program:
 
 The output would be something like:
 ```
-λ > ./target/debug/wirecrab -m 1 -f output -c 5
+λ > ./target/debug/wirecrab -m 1 -f output -c 10
 Using device wlp0s20f3
-Num:       | Time:                | Source:              | Destination:         | Protocol:  | Length:
-=========================================================================================================
-1          | 1609415323.114450    | 192.168.0.13         | 224.0.0.251          | MDNS       | 750
-2          | 1609415323.116931    |                      |                      |            | 770
-3          | 1609415323.317547    | 172.65.10.226        | 192.168.0.11         | TCP        | 60
-4          | 1609415323.317563    | 192.168.0.11         | 172.65.10.226        | TCP        | 54
-5          | 1609415323.728157    |                      |                      |            | 74
+Num:       | Time:                | Source:                                  | Destination:                             | Protocol:  | Length:
+=================================================================================================================================================
+1          | 1609421360.325228    | 192.168.0.13                             | 192.168.0.11                             | TCP        | 176
+2          | 1609421360.325347    | 192.168.0.11                             | 192.168.0.13                             | TCP        | 66
+3          | 1609421360.523991    | 192.168.0.11                             | 199.232.57.140                           | TCP        | 66
+4          | 1609421360.567946    | 199.232.57.140                           | 192.168.0.11                             | TCP        | 66
+5          | 1609421360.715769    | 192.168.0.11                             | 151.101.37.140                           | TCP        | 66
+6          | 1609421360.760434    | 2a05:4f44:201:7100:c405:846a:f7c9:f8fe   | 2a00:1450:400d:808::200a                 |            | 277
+7          | 1609421360.764844    | 151.101.37.140                           | 192.168.0.11                             | TCP        | 66
+8          | 1609421360.823793    | 2a00:1450:400d:808::200a                 | 2a05:4f44:201:7100:c405:846a:f7c9:f8fe   |            | 87
+9          | 1609421360.971670    | 192.168.0.11                             | 151.101.37.140                           | TCP        | 66
+10         | 1609421360.971690    | 192.168.0.11                             | 151.101.113.140                          | TCP        | 66
 ```
-_The missing data on line 2 and 5 are IPv6 packets that are not yet supported._
 
 ### To do
 
-- [ ] IPv6 support
 - [ ] read pcap file
 - [ ] tests
 - [ ] comments
